@@ -1,0 +1,232 @@
+"use client";
+
+import Link from 'next/link';
+import { Mail, ChevronDown, Twitter, Facebook, Linkedin, Youtube } from 'lucide-react';
+import { useState } from 'react';
+
+export default function Footer() {
+  const [email, setEmail] = useState('');
+  
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    // Add your subscription logic here
+    alert(`Subscribed with email: ${email}`);
+    setEmail('');
+  };
+  
+  return (
+    <footer className="footer-section">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Logo & Description */}
+          <div>
+            <h2 className="text-white text-xl font-bold mb-4">Logo</h2>
+            <p className="text-white/80">
+              Intelli EdTech - Your Learning Partner
+            </p>
+          </div>
+          
+          {/* Categories */}
+          <div>
+            <h2 className="text-white text-xl font-bold mb-4">Categories</h2>
+            <ul className="space-y-2">
+              <li><Link href="#hero" className="text-white/80 hover:text-white">Hero</Link></li>
+              <li><Link href="#program" className="text-white/80 hover:text-white">Program</Link></li>
+              <li><Link href="#steps" className="text-white/80 hover:text-white">Steps</Link></li>
+              <li><Link href="#features" className="text-white/80 hover:text-white">Features</Link></li>
+              <li><Link href="#subjects" className="text-white/80 hover:text-white">Subjects</Link></li>
+              <li><Link href="#popular-exams" className="text-white/80 hover:text-white">Popular Exams</Link></li>
+              <li><Link href="#action-banner" className="text-white/80 hover:text-white">Action Banner</Link></li>
+              <li><Link href="#recent-blogs" className="text-white/80 hover:text-white">Recent Blogs</Link></li>
+              <li><Link href="#join-banner" className="text-white/80 hover:text-white">Join Banner</Link></li>
+              <li><Link href="#pricing-plans" className="text-white/80 hover:text-white">Pricing Plans</Link></li>
+              <li><Link href="#student-testimonials" className="text-white/80 hover:text-white">Student Testimonials</Link></li>
+              <li><Link href="#faq" className="text-white/80 hover:text-white">FAQ</Link></li>
+            </ul>
+          </div>
+          
+          {/* Support */}
+          <div>
+            <h2 className="text-white text-xl font-bold mb-4">Support</h2>
+            <ul className="space-y-2">
+              <li><Link href="/help" className="text-white/80 hover:text-white">Help Center</Link></li>
+              <li><Link href="/terms" className="text-white/80 hover:text-white">Terms of Service</Link></li>
+              <li><Link href="/privacy" className="text-white/80 hover:text-white">Privacy Policy</Link></li>
+            </ul>
+          </div>
+          
+          {/* Stay in the Loop */}
+          <div>
+            <h2 className="text-white text-xl font-bold mb-4">Stay in the Loop with Intelli EdTech</h2>
+            <p className="text-white/80 mb-4">Subscribe with your email</p>
+            
+            <form onSubmit={handleSubscribe} className="flex">
+              <div className="relative flex-grow">
+                <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                  <Mail size={18} />
+                </span>
+                <input
+                  type="email"
+                  placeholder="Input your email"
+                  className="w-full py-2 pl-10 pr-3 bg-white/10 text-white rounded-l-md focus:outline-none focus:ring-2 focus:ring-white/30"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="bg-white text-indigo-700 font-semibold py-2 px-4 rounded-r-md hover:bg-gray-100 transition-colors"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+        
+        {/* Divider */}
+        <div className="border-t border-white/20 my-8"></div>
+        
+        {/* Bottom footer */}
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="mb-4 md:mb-0">
+            <div className="relative inline-block">
+              <button className="flex items-center space-x-2 bg-white/10 text-white py-2 px-4 rounded-md">
+                <span>English</span>
+                <ChevronDown size={16} />
+              </button>
+            </div>
+          </div>
+          
+          <div className="text-white/80 mb-4 md:mb-0">
+            2025 Intelli EdTech • <Link href="/privacy" className="hover:text-white">Privacy</Link> • <Link href="/terms" className="hover:text-white">Terms</Link> • <Link href="/sitemap" className="hover:text-white">Sitemap</Link>
+          </div>
+          
+          <div className="flex space-x-4">
+            <a href="#" className="text-white hover:text-white/80" aria-label="Twitter">
+              <Twitter size={20} />
+            </a>
+            <a href="#" className="text-white hover:text-white/80" aria-label="Facebook">
+              <Facebook size={20} />
+            </a>
+            <a href="#" className="text-white hover:text-white/80" aria-label="LinkedIn">
+              <Linkedin size={20} />
+            </a>
+            <a href="#" className="text-white hover:text-white/80" aria-label="YouTube">
+              <Youtube size={20} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+
+
+Make sure each section in your page.js file has a corresponding id attribute. For example:
+
+<section id="hero" className="mb-20">
+  <Hero />
+</section>
+<section id="program" className="mb-20">
+  <Program />
+</section>
+<section id="steps" className="mb-20">
+  <Steps />
+</section>
+
+
+
+
+
+// In your Hero.js component
+import { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
+
+export default function Hero() {
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsProductsOpen(false);
+      }
+    }
+    
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Add this inside your existing Hero component, typically in the navbar section
+  return (
+    <div>
+      {/* Your existing Hero content */}
+      
+      {/* Products dropdown - Add this where your navigation is */}
+      <div className="relative" ref={dropdownRef}>
+        <button 
+          className="flex items-center text-gray-800 hover:text-indigo-600 transition-colors"
+          onClick={() => setIsProductsOpen(!isProductsOpen)}
+        >
+          Products
+          <svg xmlns="http://www.w3.org/2000/svg" className={`ml-1 h-4 w-4 transition-transform ${isProductsOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        
+        {isProductsOpen && (
+          <div className="absolute z-10 mt-2 w-64 bg-white rounded-lg shadow-lg py-2 border border-gray-100">
+            <Link href="/question-hub" className="product-dropdown-item">
+              <div className="icon-circle bg-pink-500">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <span className="text-gray-700 font-medium">Question Hub</span>
+            </Link>
+            
+            <Link href="/study-notes" className="product-dropdown-item">
+              <div className="icon-circle bg-teal-500">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <span className="text-gray-700 font-medium">Study Notes</span>
+            </Link>
+            
+            <Link href="/flash-cards" className="product-dropdown-item">
+              <div className="icon-circle bg-indigo-500">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v3m0 0v3m0-3h3m-3 0H9" />
+                </svg>
+              </div>
+              <span className="text-gray-700 font-medium">Flash Cards</span>
+            </Link>
+          </div>
+        )}
+      </div>
+      
+      {/* Rest of your Hero component */}
+    </div>
+  );
+}
+
+
+botton
+
+<Link 
+    href="/login" 
+    className="bg-white text-indigo-600 border border-indigo-600 py-2 px-4 rounded-lg hover:bg-indigo-50"
+    >
+    Log In
+</Link>
+
+
+
+

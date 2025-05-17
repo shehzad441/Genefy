@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+:root {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.font-archivo {
+  font-family: 'Archivo', sans-serif;
+}
+
+.searchBar {
+  display: flex;
+  max-width: 600px;
+  width: 100%;
+  margin: 5rem auto;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.searchBar input {
+  flex: 1;
+  padding: 15px 25px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.searchBar button {
+  width: 164px;
+  height: 51px;
+  top: 5px;
+  left: 347px;
+  border-radius: 34px;
+  background: linear-gradient(90deg, #9348FE 0%, #3992FE 100%);
+  color: white;
+  font-weight: 500;
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #2688A9;
+}
+
+.searchBar button i.fa-solid.fa-star {
+  font-size: 1rem;
+  color: white;
+}
+
+.searchBar button i {
+  margin-right: 8px;
+}
+
+.step-card {
+  display: flex;
+  gap: 26px;
+  width: 1203px;
+  height: 512.54px;
+  margin: 0 auto;
+}
+
+.step-img {
+  width: 50%;
+  height: auto;
+  border-radius: 25px;
+  object-fit: cover;
+}
+
+.step-info {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  justify-content: center;
+}
+
+.step-number {
+  font-family: 'Helvetica Rounded', sans-serif;
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 40px;
+  color: #EBE8FF;
+}
+
+.step-title {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 45px;
+  margin: 0;
+  color: #3E3A51;
+}
+
+.step-points {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #5A5A5A;
+  font-size: 18px;
+  line-height: 40px;
+}
+
+
+
+-----------StepCard.js-------------
+export default function StepCard({ stepNumber, title, points, imgSrc }) {
+    return (
+      <div className="step-card">
+        <img src={imgSrc} alt={title} className="step-img" />
+        <div className="step-info">
+          <div className="step-number">#{stepNumber}</div>
+          <h2 className="step-title">{title}</h2>
+          <ul className="step-points">
+            {points.map((point, idx) => (
+              <li key={idx}>{point}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    );
+  }
+  
+-------------------Steps.js----------------
+export default function Steps() {
+  return (
+    <section className="flex flex-col gap-20 items-center">
+      {stepsData.map((step, idx) => (
+        <div
+          key={idx}
+          className={`flex items-center gap-10 ${
+            idx % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
+          }`}
+        >
+          <StepCard {...step} />
+        </div>
+      ))}
+    </section>
+  );
+}
