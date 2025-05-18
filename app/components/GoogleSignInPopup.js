@@ -28,7 +28,7 @@ export default function GoogleSignInPopup() {
   if (!showPopup) return null;
   
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-50">
       <div className="bg-white w-full max-w-md rounded-lg shadow-lg overflow-hidden">
         {/* Header with close button */}
         <div className="relative p-4 flex items-center border-b border-gray-200">
