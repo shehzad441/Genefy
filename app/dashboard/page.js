@@ -3,10 +3,10 @@
 
 import { useState } from 'react';
 import { Search, Bell, HelpCircle } from 'lucide-react';
-import LearningHub from '../../components/dashboard/LearningHub';
-import SubjectList from '../../components/dashboard/SubjectList';
-import BookmarkList from '../../components/dashboard/BookmarkList';
-import NotesList from '../../components/dashboard/NotesList';
+import LearningHub from '../components/dashboard/LearningHub';
+import SubjectList from '../components/dashboard/SubjectList';
+import BookmarkList from '../components/dashboard/BookmarkList';
+import NotesList from '../components/dashboard/NotesList';
 
 export default function DashboardPage() {
   const [studentName, setStudentName] = useState('student name');

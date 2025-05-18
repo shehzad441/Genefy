@@ -7,7 +7,7 @@ export default function BookmarkList() {
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({
-        left: -300, // Adjust the scroll distance as needed
+        left: -300,
         behavior: "smooth",
       });
     }
@@ -16,7 +16,7 @@ export default function BookmarkList() {
   const scrollRight = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({
-        left: 300, // Adjust the scroll distance as needed
+        left: 300,
         behavior: "smooth",
       });
     }

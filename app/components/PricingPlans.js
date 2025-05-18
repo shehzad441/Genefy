@@ -51,6 +51,7 @@ export default function PricingPlans() {
     }
   ];
 
+
   return (
     <section className="pricing-section py-16 bg-white">
       <div className="container mx-auto px-4">

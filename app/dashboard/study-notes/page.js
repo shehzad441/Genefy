@@ -29,15 +29,15 @@ export default function StudyNotesPage() {
       
       {/* Notes List */}
       <div className="mt-6 grid grid-cols-2 gap-4">
-        <div className="p-4 bg-teal-600 rounded-lg text-white cursor-pointer hover:bg-teal-700 transition-colors">
+        <Link href="/dashboard/information-technology" className="p-4 bg-teal-600 rounded-lg text-white cursor-pointer hover:bg-teal-700 transition-colors block">
           <div className="flex items-center">
             <div className="p-2 bg-teal-500 rounded-full">
               <FileText className="w-6 h-6" />
             </div>
             <h3 className="text-xl font-medium ml-3">Information Technology</h3>
           </div>
-        </div>
-        
+        </Link>
+
         <div className="p-4 bg-orange-500 rounded-lg text-white cursor-pointer hover:bg-orange-600 transition-colors">
           <div className="flex items-center">
             <div className="p-2 bg-orange-400 rounded-full">
