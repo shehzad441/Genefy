@@ -53,7 +53,7 @@ export default function PricingPlans() {
 
 
   return (
-    <section className="pricing-section py-16 bg-white">
+    <section id='pricing' className="pricing-section py-16 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="text-center text-4xl md:text-5xl font-bold text-gray-800 mb-16">
           Choose your plan

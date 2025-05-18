@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { Phone, Mail, Facebook, Linkedin, Instagram, HelpCircle, ChevronDown } from 'lucide-react';
 
+
 export default function Topbar() {
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const dropdownRef = useRef(null);

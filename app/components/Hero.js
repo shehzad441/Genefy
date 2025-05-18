@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import { Phone, Mail, Facebook, Linkedin, Instagram, HelpCircle, ChevronDown } from 'lucide-react';
 
 export default function Hero() {
   const [isProductsOpen, setIsProductsOpen] = useState(false);
@@ -36,12 +37,20 @@ export default function Hero() {
           <i className="fas fa-envelope" />
           <span>contact@intelliedtech.com</span>
         </div>
-        <div className="flex gap-4 items-center">
-          <i className="fab fa-facebook-f cursor-pointer" />
-          <i className="fab fa-linkedin-in cursor-pointer" />
-          <i className="fab fa-instagram cursor-pointer" />
-          <span className="text-xl font-bold cursor-pointer">?</span>
-        </div>
+        <div className="flex gap-5 items-center">
+            <a href="#" aria-label="Facebook">
+            <img src="/images/facebook.svg" alt="Facebook" className="w-6 h-6" />
+            </a>
+            <a href="#" aria-label="LinkedIn">
+            <img src="/images/linkedin.svg" alt="LinkedIn" className="w-6 h-6" />
+            </a>
+            <a href="#" aria-label="Instagram">
+            <img src="/images/instagram.svg" alt="Instagram" className="w-6 h-6" />
+            </a>
+            <a href="#" aria-label="Help" className="w-6 h-6 flex items-center justify-center rounded-full border border-white">
+              <HelpCircle size={14} className="text-white" />
+            </a>
+          </div>
       </div>
 
       {/* Navbar */}
@@ -51,7 +60,7 @@ export default function Hero() {
         <nav className="flex gap-8 text-sm font-medium">
           <a href="#">Home</a>
           <a href="#">Request Tutor</a>
-          <a href="#">Pricing</a>
+          <a href="#pricing">Pricing</a>
           <a href="#">Store Hub</a>
           <div className="relative" ref={dropdownRef}>
         <button 
